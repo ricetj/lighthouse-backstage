@@ -17,25 +17,27 @@ import { ApiEntity, Entity } from '@backstage/catalog-model';
 import { WarningPanel } from '@backstage/core';
 import {
   ApiDefinitionCard,
-  ConsumedApisCard, 
-  ConsumingComponentsCard, 
-  ProvidedApisCard, 
-  ProvidingComponentsCard
+  ConsumedApisCard,
+  ConsumingComponentsCard,
+  ProvidedApisCard,
+  ProvidingComponentsCard,
 } from '@backstage/plugin-api-docs';
 import {
-  AboutCard, EntityPageLayout,
-  useEntity
+  AboutCard,
+  EntityPageLayout,
+  useEntity,
 } from '@backstage/plugin-catalog';
 import {
-  isPluginApplicableToEntity as isCircleCIAvailable, Router as CircleCIRouter
+  isPluginApplicableToEntity as isCircleCIAvailable,
+  Router as CircleCIRouter,
 } from '@backstage/plugin-circleci';
 import {
-  isPluginApplicableToEntity as isGitHubActionsAvailable, Router as GitHubActionsRouter
+  isPluginApplicableToEntity as isGitHubActionsAvailable,
+  Router as GitHubActionsRouter,
 } from '@backstage/plugin-github-actions';
 import { EmbeddedDocsRouter as DocsRouter } from '@backstage/plugin-techdocs';
 import { Grid } from '@material-ui/core';
 import React from 'react';
-
 
 const CICDSwitcher = ({ entity }: { entity: Entity }) => {
   // This component is just an example of how you can implement your company's logic in entity page.

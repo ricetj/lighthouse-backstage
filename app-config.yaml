@@ -43,7 +43,7 @@ techdocs:
   storageUrl: http://localhost:7000/api/techdocs/static/docs
   builder: 'local'
   generators:
-    techdocs: 'docker'
+    techdocs: 'local'
   publisher:
     type: 'local'
 
