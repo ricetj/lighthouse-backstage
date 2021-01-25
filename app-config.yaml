@@ -70,13 +70,17 @@ catalog:
   rules:
     - allow: [Component, API, Group, User, Template, Location]
   locations:
+    # vets-api modules in catalog
+    - type: url
+      target: https://github.com/department-of-veterans-affairs/vets-api/blob/backstage-catalog-testing/backstage-apis.yaml
+
     # Backstage example components
     - type: url
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
 
     # Backstage example APIs
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
 
     # Backstage example templates
     - type: github

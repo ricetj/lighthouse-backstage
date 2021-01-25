@@ -18,19 +18,10 @@ import { Router as RegisterComponentRouter } from '@backstage/plugin-register-co
 import { Router as TechRadarRouter } from '@backstage/plugin-tech-radar';
 
 import { EntityPage } from './components/catalog/EntityPage';
-import { customTheme } from './theme';
 
 const app = createApp({
   apis,
   plugins: Object.values(plugins),
-  themes: [
-    {
-      id: 'custom-theme',
-      title: 'My custom theme',
-      variant: 'light',
-      theme: customTheme,
-    },
-  ],
   components: {
     SignInPage: props => {
       return (
