@@ -27,6 +27,15 @@ services:
       - ./packages/:/usr/src/app/packages
       - ./app-config.yaml:/usr/src/app/app-config.yaml
 
+  lighthouse:
+    image: spotify/lighthouse-audit-service
+    ports:
+      - '3003:3003'
+    depends_on:
+      - database
+    env_file:
+      - .env
+
   database:
     image: postgres
     ports:
