@@ -68,7 +68,7 @@ const App = () => (
             element={<CatalogRouter EntityPage={EntityPage} />}
           />
           <Route
-            path="/catalog-import/*"
+            path="/catalog-import"
             element={
               <ImportComponentRouter catalogRouteRef={catalogRouteRef} />
             }

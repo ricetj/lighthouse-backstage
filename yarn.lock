@@ -1692,16 +1692,7 @@
     unzipper "^0.10.11"
     winston "^3.2.1"
 
-"@backstage/catalog-client@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@backstage/catalog-client/-/catalog-client-0.3.4.tgz#f3fe8861b9e8c3e2594f708805fd6a9292b293c7"
-  integrity sha512-YH9l5kuY7c84/GmXt5u1vwRANaMQjBio0oFbqDBRovuIYFe2l6IVp/O9sHsCK/sujb0pB9yfXGtZjScgCcha+w==
-  dependencies:
-    "@backstage/catalog-model" "^0.6.0"
-    "@backstage/config" "^0.1.2"
-    cross-fetch "^3.0.6"
-
-"@backstage/catalog-client@^0.3.5":
+"@backstage/catalog-client@^0.3.4", "@backstage/catalog-client@^0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@backstage/catalog-client/-/catalog-client-0.3.5.tgz#ead3cae312af492af237a26b053efa14bd00d475"
   integrity sha512-+9OTAxiNacN7gDvhomcwVfskoDdEKgNHyR8O1wUPzVR+LaB8BZuTHoNs3XdFtxMt0kNqORrMtkFCL2zlPn0qWw==
@@ -2103,32 +2094,7 @@
     react-use "^15.3.3"
     yaml "^1.10.0"
 
-"@backstage/plugin-catalog@^0.2.10", "@backstage/plugin-catalog@^0.2.11", "@backstage/plugin-catalog@^0.2.7", "@backstage/plugin-catalog@^0.2.9":
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog/-/plugin-catalog-0.2.11.tgz#d0e978216dc50b1558cd6de6cfad56edc7331e7b"
-  integrity sha512-vmZGJqrSwBz91IHKJka3UryRGW+FdJZeEX2mVLHt4EfnyAXwQUlothSiddr1NUJkK0bbhmGTlJgPe0MxIgVmLQ==
-  dependencies:
-    "@backstage/catalog-client" "^0.3.4"
-    "@backstage/catalog-model" "^0.6.1"
-    "@backstage/core" "^0.4.4"
-    "@backstage/plugin-scaffolder" "^0.3.6"
-    "@backstage/theme" "^0.2.2"
-    "@material-ui/core" "^4.11.0"
-    "@material-ui/icons" "^4.9.1"
-    "@material-ui/lab" "4.0.0-alpha.45"
-    "@types/react" "^16.9"
-    classnames "^2.2.6"
-    git-url-parse "^11.4.3"
-    moment "^2.26.0"
-    react "^16.13.1"
-    react-dom "^16.13.1"
-    react-helmet "6.1.0"
-    react-router "6.0.0-beta.0"
-    react-router-dom "6.0.0-beta.0"
-    react-use "^15.3.3"
-    swr "^0.3.0"
-
-"@backstage/plugin-catalog@^0.2.12":
+"@backstage/plugin-catalog@^0.2.10", "@backstage/plugin-catalog@^0.2.11", "@backstage/plugin-catalog@^0.2.12", "@backstage/plugin-catalog@^0.2.7", "@backstage/plugin-catalog@^0.2.9":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog/-/plugin-catalog-0.2.12.tgz#7fcb204b29d96c7811457fd05afecf132ffd4230"
   integrity sha512-EH2Ag/Hy12PXG4HJOn17Gg13naR0knu0bhTWsyowaDmT08JJZtZsSKonyNLEpM6NUF3+gXqvC77Kt8bDSL/rAA==

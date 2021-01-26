@@ -19,7 +19,6 @@
   "dependencies": {
     "app": "0.0.0",
     "@backstage/backend-common": "^0.4.3",
-    "@backstage/catalog-model": "^0.6.1",
     "@backstage/config": "^0.1.2",
     "@backstage/plugin-app-backend": "^0.3.3",
     "@backstage/plugin-auth-backend": "^0.2.10",
