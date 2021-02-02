@@ -10,7 +10,8 @@ import {
 } from '@backstage/core';
 import { apis } from './apis';
 import * as plugins from './plugins';
-import { AppSidebar } from './sidebar';
+import themes from './styles/themes';
+import { AppSidebar } from './components/sidenav/sidebar';
 import { Route, Routes, Navigate } from 'react-router';
 import { Router as CatalogRouter } from '@backstage/plugin-catalog';
 import { Router as ImportComponentRouter } from '@backstage/plugin-catalog-import';
@@ -22,9 +23,12 @@ import { Router as LighthouseRouter } from '@backstage/plugin-lighthouse';
 
 import { EntityPage } from './components/catalog/EntityPage';
 
+import '../src/styles/global/fonts.css';
+
 const app = createApp({
   apis,
   plugins: Object.values(plugins),
+  themes: themes,
   components: {
     SignInPage: props => {
       return (
