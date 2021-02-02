@@ -162,8 +162,4 @@ const lightTheme: BackstageTheme = {
   overrides: createThemeOverrides(baseTheme),
 };
 
-// lightTheme?.overrides?.MuiSnackbar?.root?.background = '#000';
-
-console.log(lightTheme);
-
 export default lightTheme;
