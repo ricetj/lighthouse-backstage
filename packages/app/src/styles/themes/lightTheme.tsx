@@ -1,3 +1,5 @@
+import React from 'react';
+import { AppTheme } from '@backstage/core';
 import { createMuiTheme, ThemeOptions, Theme } from '@material-ui/core';
 import {
   createThemeOverrides,
@@ -7,6 +9,7 @@ import {
   PageThemeSelector,
   BackstagePalette,
 } from '@backstage/theme';
+import LightIcon from '@material-ui/icons/WbSunny';
 
 /**
  * THEME OPTIONS
@@ -162,4 +165,12 @@ const lightTheme: BackstageTheme = {
   overrides: createThemeOverrides(baseTheme),
 };
 
-export default lightTheme;
+const theme: AppTheme = {
+  id: 'light',
+  title: 'Lighthouse Light Theme',
+  variant: 'light',
+  theme: lightTheme,
+  icon: <LightIcon />,
+};
+
+export default theme;

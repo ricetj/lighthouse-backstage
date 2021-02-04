@@ -1,0 +1,55 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+workflows:
+  publish-docker-images:
+    jobs:
+      - build-images:
+          context:
+            - vavfsbot-dockerhub-creds
+          filters:
+            branches:
+              only:
+                - master
+jobs:
+  build-images:
+    environment:
+      BACKEND_IMAGE_NAME: dsva/backstage-demo-backend
+      FRONTEND_IMAGE_NAME: dsva/backstage-demo-frontend
+    executor:
+      name: node/default
+      tag: 14.15.4
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: docker login
+          command: echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
+      - run:
+          name: install python2 because sqlite3 requires a super old node-gyp
+          command: sudo apt update && sudo apt install python2 python-is-python2
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: compile TS to build artifacts
+          command: yarn tsc && yarn build
+      - run:
+          name: build and push frontend image
+          command: |
+            cd packages/app && docker build -t $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1 .
+            docker push $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1
+            docker tag $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1 $FRONTEND_IMAGE_NAME:latest
+            docker push $FRONTEND_IMAGE_NAME:latest
+      - run:
+          name: build backend image and push
+          command: |
+            yarn build-image
+            docker tag backstage:latest $BACKEND_IMAGE_NAME:$CIRCLE_SHA1
+            docker push $BACKEND_IMAGE_NAME:$CIRCLE_SHA1
+            docker tag backstage:latest $BACKEND_IMAGE_NAME:latest
+            docker push $BACKEND_IMAGE_NAME:latest
+      - run:
+          name: docker logout
+          when: always
+          command: docker logout
