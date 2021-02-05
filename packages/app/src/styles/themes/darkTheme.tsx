@@ -102,9 +102,9 @@ const palette: BackstagePalette = {
     link: '#9bdaf1',
   },
   border: '#E6E6E6',
-  textContrast: '#000000',
-  textVerySubtle: '#DDD',
-  textSubtle: '#6E6E6E', // secondary column titles in table
+  textContrast: '#fff', // main text and column on focus
+  textVerySubtle: '#5b616b',
+  textSubtle: '#aeb0b5', // secondary column titles in table
   highlight: '#FFFBCC',
   errorBackground: '#FFEBEE',
   warningBackground: '#F59B23',
