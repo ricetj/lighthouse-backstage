@@ -12,9 +12,6 @@ coverage
 # Dependencies
 node_modules/
 
-# Node version directives
-.nvmrc
-
 # dotenv environment variables file
 .env
 .env.test
