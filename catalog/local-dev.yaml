@@ -5,7 +5,7 @@ metadata:
   description: 'Documentation for backstage local dev environment'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: dir:../
+    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/tree/lekeve-local-dev-docs
 spec:
   type: documentation
   lifecycle: experimental
