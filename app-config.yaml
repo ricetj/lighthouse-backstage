@@ -70,6 +70,8 @@ catalog:
   rules:
     - allow: [Component, API, Group, User, Template, Location]
   locations:
+    - type: github
+      target: https://github.com/department-of-veterans-affairs/backstage/blob/lekeve/local-dev-docs/catalog/local-dev.yaml
     # vets-api modules in catalog
     - type: url
       target: https://github.com/department-of-veterans-affairs/vets-api/blob/backstage-catalog-testing/backstage-apis.yaml

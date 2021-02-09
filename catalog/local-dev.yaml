@@ -5,7 +5,7 @@ metadata:
   description: 'Documentation for backstage local dev environment'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: dir:../
+    backstage.io/techdocs-ref: dir:./
 spec:
   type: documentation
   lifecycle: experimental
