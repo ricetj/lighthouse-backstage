@@ -3,9 +3,6 @@ kind: Component
 metadata:
   name: 'local-dev'
   description: 'Documentation for backstage local dev environment'
-  annotations:
-    github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: dir:./
 spec:
   type: documentation
   lifecycle: experimental
