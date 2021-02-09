@@ -1,0 +1,7 @@
+site_name: 'backstage'
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Local Dev Environment: index.md
