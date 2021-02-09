@@ -21,6 +21,17 @@ export AUTH_GITHUB_CLIENT_ID=<id>
 export AUTH_GITHUB_CLIENT_SECRET=<secret>
 ```
 
-Then, you should be able to use `docker-compose up -d` to start the stack. The build time for Backstage is significant, so it can take a while on the first startup.
+Then, you need to create the images locally. Run:
 
-The front-end will be available at http://localhost:3000.
+```
+yarn install
+yarn tsc
+yarn build
+yarn docker-start
+```
+
+This will start the stack in the background and return to a shell prompt. The front-end will be available at http://localhost:3000 once the dev server finishes compiling. You can watch progress or view logs with `yarn docker-logs`.
+
+## Why build images outside of docker-compose?
+
+Yes, docker-compose can build images.. but it's not quite that simple. The image build process that Backstage ships with uses `yarn build` outside the container to generate some artifacts that are used as input to the Docker image build process. Namely, it generates the skeleton.tar file. Rather than fighting this, we're just creating the image as a secondary step. Incidentally, this means it's actually quite a bit faster build on Docker Desktop on Windows or Mac.

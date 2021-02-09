@@ -8,6 +8,9 @@
   "scripts": {
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
+    "docker-start": "docker-compose up -d",
+    "docker-stop": "docker-compose down",
+    "docker-logs": "docker-compose logs -f",
     "build": "lerna run build",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",

@@ -2,30 +2,19 @@ version: '3.4'
 services:
   backend:
     build: .
-    image: backstage
+    image: backstage-local
     command: yarn start-backend
     env_file:
       - .env
     ports:
       - '7000:7000'
+      - '3000:7000'
     links:
       - database
     volumes:
-      - ./packages/:/usr/src/app/packages
-      - ./app-config.yaml:/usr/src/app/app-config.yaml
+      - ./:/usr/src/app
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/backstage:/tmp/backstage
-
-  app:
-    image: backstage
-    command: yarn start
-    depends_on:
-      - backend
-    ports:
-      - '3000:3000'
-    volumes:
-      - ./packages/:/usr/src/app/packages
-      - ./app-config.yaml:/usr/src/app/app-config.yaml
 
   lighthouse:
     image: spotify/lighthouse-audit-service
