@@ -1,9 +1,10 @@
 version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.1.0
 workflows:
-  publish-docker-images:
+  build-publish-docker-images:
     jobs:
+      - build
       - build-images:
           context:
             - vavfsbot-dockerhub-creds
@@ -11,21 +12,15 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - build
 jobs:
-  build-images:
-    environment:
-      BACKEND_IMAGE_NAME: dsva/backstage-demo-backend
-      FRONTEND_IMAGE_NAME: dsva/backstage-demo-frontend
+  build:
     executor:
       name: node/default
       tag: 14.15.4
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
-      - run:
-          name: docker login
-          command: echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
       - run:
           name: install python2 because sqlite3 requires a super old node-gyp
           command: sudo apt update && sudo apt install python2 python-is-python2
@@ -34,6 +29,25 @@ jobs:
       - run:
           name: compile TS to build artifacts
           command: yarn tsc && yarn build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  build-images:
+    environment:
+      BACKEND_IMAGE_NAME: dsva/backstage-demo-backend
+      FRONTEND_IMAGE_NAME: dsva/backstage-demo-frontend
+    executor:
+      name: node/default
+      tag: 14.15.4
+    steps:
+      - attach_workspace:
+          at: .
+      - setup_remote_docker:
+          version: 19.03.13
+      - run:
+          name: docker login
+          command: echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
       - run:
           name: build and push frontend image
           command: |
