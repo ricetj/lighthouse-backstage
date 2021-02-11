@@ -2,10 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: 'backstage'
-  description: 'Documentation for backstage local dev environment'
+  description: 'Documentation for VA backstage'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: dir:./
+    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/tree/lekeve-local-dev-docs/catalog
 spec:
   type: documentation
   lifecycle: experimental
