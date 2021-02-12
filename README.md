@@ -13,7 +13,7 @@ Configured in this demo is:
 
 To get started, you'll need to [register an OAuth application on GitHub](https://github.com/settings/developers) (callback is localhost:7000 for now) and a [GitHub personal access token](https://github.com/settings/tokens). For the personal access token, it needs repo, workflow, and admin:repo_hook access.
 
-The application can be built for local development either natively or using a docker setup. After obtaining the necessary GitHub Auth Tokens skip to the desired sections:
+The application can be built for local development either natively or using a docker setup. **The preferred method for local development is running natively.** After obtaining the necessary GitHub Auth Tokens skip to the desired sections:
 
 - [Running natively](#running-natively)
 - [Running with Docker](#running-with-docker)
@@ -24,7 +24,11 @@ Create an `app-config.local.yaml` file and store your GitHub Auth secrets in the
 
 > :warning: **`app-config.local.yaml` is gitignored by default, but take care not to accidentally commit this file or accidentally store your secrets in the sample file provided**
 
-You will also need a local Postgresql instance running to access most backstage features. A simple way to do this is to use [Postgres.app](https://postgresapp.com/).
+You will also need a local Postgresql instance running to access most backstage features. The preferred method is to use the database image specified in `docker-compose.yaml`. You can start this database container by running the following command:
+
+```
+docker-compose up -d database
+```
 
 Once you have your local config file set and your database running you should run the following commands in the project root:
 
