@@ -4,11 +4,28 @@ services:
     build: .
     image: backstage-local
     command: yarn start-backend
+    restart: always
     env_file:
       - .env
     ports:
       - '7000:7000'
       - '3000:7000'
+    links:
+      - database
+    volumes:
+      - ./:/usr/src/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/backstage:/tmp/backstage
+
+  backend_tsc_watcher:
+    build: .
+    image: backstage-local
+    command: yarn tsc -w
+    depends_on:
+      - backend
+    restart: always
+    env_file:
+      - .env
     links:
       - database
     volumes:
