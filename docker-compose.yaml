@@ -2,36 +2,30 @@ version: '3.4'
 services:
   backend:
     build: .
-    image: backstage-local
+    image: backstage
     command: yarn start-backend
-    restart: always
     env_file:
       - .env
     ports:
       - '7000:7000'
-      - '3000:7000'
     links:
       - database
     volumes:
-      - ./:/usr/src/app
+      - ./packages/:/usr/src/app/packages
+      - ./app-config.yaml:/usr/src/app/app-config.yaml
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/backstage:/tmp/backstage
 
-  backend_tsc_watcher:
-    build: .
-    image: backstage-local
-    command: yarn tsc -w
+  app:
+    image: backstage
+    command: yarn start
     depends_on:
       - backend
-    restart: always
-    env_file:
-      - .env
-    links:
-      - database
+    ports:
+      - '3000:3000'
     volumes:
-      - ./:/usr/src/app
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/backstage:/tmp/backstage
+      - ./packages/:/usr/src/app/packages
+      - ./app-config.yaml:/usr/src/app/app-config.yaml
 
   lighthouse:
     image: spotify/lighthouse-audit-service
