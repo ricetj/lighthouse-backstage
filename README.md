@@ -81,6 +81,12 @@ To stop and remove the containers you can run the following command:
 yarn docker-stop
 ```
 
+### Docker container visualization
+
+![docker-compose](https://user-images.githubusercontent.com/9746156/107783302-f56d3500-6cfe-11eb-97d2-9b1c52a67ef4.png)
+
+This graph visualizes the docker containerization state and the dependencies/volumes required. One thing to note is that custom plugins (Lighthouse) rely on the same database as the backstage backend. This may require updates once multiple custom plugins are built.
+
 ### Why build images outside of docker-compose?
 
 Yes, docker-compose can build images.. but it's not quite that simple. The image build process that Backstage ships with uses `yarn build` outside the container to generate some artifacts that are used as input to the Docker image build process. Namely, it generates the skeleton.tar file. Rather than fighting this, we're just creating the image as a secondary step. Incidentally, this means it's actually quite a bit faster build on Docker Desktop on Windows or Mac.
