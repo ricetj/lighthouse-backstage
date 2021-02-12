@@ -20,7 +20,7 @@ The application can be built for local development either natively or using a do
 
 ## Running natively
 
-Create an `app-config.local.yaml` file and store your GitHub Auth secrets in their corresponding keys. You should copy the provided `app-config.local.yaml.sample` file as a starting point for your keys. When running backstage locally the app will pull settings from both `app-config.yaml` and `app-config.local.yaml`, but the local settings will override the defaults.
+Create an `app-config.local.yaml` file and store your GitHub Auth secrets in their corresponding keys. You should copy the provided `app-config.local.yaml.sample` file as a starting point for your keys. When running backstage locally the app will pull settings from both `app-config.yaml` and `app-config.local.yaml`, but the local settings will override the defaults. More information on backstage configuration can be found [here](https://backstage.io/docs/conf/).
 
 > :warning: **`app-config.local.yaml` is gitignored by default, but take care not to accidentally commit this file or accidentally store your secrets in the sample file provided**
 
@@ -50,7 +50,7 @@ and
 yarn start
 ```
 
-The front-end will be available at http://localhost:3000 once the app finishes compiling.
+The front-end will be available at http://localhost:3000 once the app finishes compiling. The backend will be available at http://localhost:7000. You can check `app-config.yaml` for specific endpoints.
 
 ## Running with Docker
 
