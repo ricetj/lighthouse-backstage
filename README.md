@@ -15,8 +15,8 @@ To get started, you'll need to [register an OAuth application on GitHub](https:/
 
 The application can be built for local development either natively or using a docker setup. After obtaining the necessary GitHub Auth Tokens skip to the desired sections:
 
-- Running natively
-- Running with Docker
+- [Running natively](#running-natively)
+- [Running with Docker](#running-with-docker)
 
 ## Running natively
 
