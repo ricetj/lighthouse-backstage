@@ -5,5 +5,5 @@ plugins:
   - techdocs-core
 
 nav:
-  - Introduction: techdocs-intro.md
+  - Introduction: index.md
   - Creating Documentation: creating-docs.md
