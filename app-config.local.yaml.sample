@@ -31,6 +31,15 @@ auth:
         clientId: <AUTH_GITHUB_CLIENT_ID>
         clientSecret: <AUTH_GITHUB_CLIENT_SECRET>
 
+techdocs:
+  requestUrl: http://localhost:7000/api/techdocs
+  storageUrl: http://localhost:7000/api/techdocs/static/docs
+  builder: 'local'
+  generators:
+    techdocs: 'docker'
+  publisher:
+    type: 'local'
+
 scaffolder:
   github:
     token: <GITHUB_TOKEN>

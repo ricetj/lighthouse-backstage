@@ -1,0 +1,9 @@
+site_name: 'TechDocs'
+site_description: 'TechDocs Documentation'
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Introduction: techdocs-intro.md
+  - Creating Documentation: creating-docs.md
