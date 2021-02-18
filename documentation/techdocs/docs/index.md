@@ -1,5 +1,9 @@
 # Introduction to TechDocs
 
-This is an introduction to our TechDocs implementation and how to build documentation for Backstage. You can find documentation on the underlying architecture of TechDocs [here](https://backstage.io/docs/features/techdocs/techdocs-overview).
+TechDocs is Spotify’s homegrown docs-like-code solution built directly into Backstage. This means engineers write their documentation in Markdown files which live together with their code.
 
-## Setting up documentation
+This is an introduction to our TechDocs implementation and how to build documentation components for Backstage. You can find information on the underlying architecture of TechDocs [here](https://backstage.io/docs/features/techdocs/architecture).
+
+## Overview
+
+TechDocs are generated from markdown files using
