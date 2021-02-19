@@ -7,3 +7,4 @@ plugins:
 nav:
   - Introduction: index.md
   - Creating Documentation: creating-docs.md
+  - Adding your project to Backstage: adding-to-backstage.md

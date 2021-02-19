@@ -2,7 +2,7 @@
 
 ## General file structure
 
-Each documentation component should follow the directory/file structure below.
+Each project should follow the directory/file structure below.
 
 ```
 /docs
@@ -12,7 +12,7 @@ mkdocs.yml
 documentation-name.yaml
 ```
 
-> :warning: `/docs`, `mkdocs.yml`, and `index.md` are strict naming requirements and are required by mkdocs to generate your documentation
+> :warning: `/docs`, `mkdocs.yml`, and `index.md` are strict naming requirements and are required by MkDocs to generate your documentation
 
 The `/docs` directory contains the markdown files that make up your documentation. An `index.md` file is required as the initial entry point to your documentation project.
 
@@ -23,7 +23,7 @@ The `/docs` directory contains the markdown files that make up your documentatio
 site_name: 'TechDocs'
 site_description: 'TechDocs Documentation'
 
-# required
+# required plugin for techdocs generator
 plugins:
   - techdocs-core
 
@@ -34,7 +34,7 @@ nav:
   - Creating Documentation: creating-docs.md
 ```
 
-Finally, you should create a yaml file that contains your documentation configuration. This file includes your documentation name, description, and a reference to where your docs are stored.
+Finally, you should create a yaml file that contains your project configuration. This file includes your documentation name, description, and a reference to where your docs are stored.
 
 ```yaml
 apiVersion: backstage.io/v1alpha1
@@ -44,15 +44,15 @@ metadata:
   description: 'TechDocs Documentation'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/blob/API-5210-techdocs/documentation/techdocs
+    # location of your project, can also be a relative url
+    # example: dir:./
+    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/blob/master/documentation/techdocs
 spec:
   type: documentation
   lifecycle: experimental
   owner: 'department-of-veterans-affairs/team-bilby'
 ```
 
-## Standalone documentation component
+## Using the Documentation Template Generator
 
-## Using the documentation template
-
-## Using an existing repo
+> :warning: WIP, documentation template generator seems flaky
