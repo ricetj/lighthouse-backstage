@@ -1,0 +1,57 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: va-backstage
+  namespace: department-of-veterans-affairs
+  description: Example of a backstage User Group
+spec:
+  type: team
+  profile:
+    displayName: va-backstage
+    email: kevin.lee@adhocteam.us
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: rianfowler
+spec:
+  profile:
+    displayName: Rian
+  memberOf: [department-of-veteran-affairs/backstage]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: kevinlee
+spec:
+  profile:
+    displayName: Kevin
+  memberOf: [department-of-veteran-affairs/backstage]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: johanna-adhoc
+spec:
+  profile:
+    displayName: Johanna
+  memberOf: [department-of-veteran-affairs/backstage]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: anthony-kopczyk
+spec:
+  profile:
+    displayName: Anthony
+  memberOf: [department-of-veteran-affairs/backstage]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: TS000
+spec:
+  profile:
+    displayName: Tyler
+  memberOf: [department-of-veteran-affairs/backstage]

@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: 'TechDocs'
+  namespace: department-of-veterans-affairs
   description: 'TechDocs Documentation'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
@@ -9,4 +10,4 @@ metadata:
 spec:
   type: documentation
   lifecycle: experimental
-  owner: 'department-of-veterans-affairs/team-bilby'
+  owner: 'department-of-veterans-affairs/va-backstage'
