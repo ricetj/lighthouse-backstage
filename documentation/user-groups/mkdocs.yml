@@ -1,0 +1,10 @@
+site_name: 'User Groups'
+site_description: 'User/Groups Documentation'
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Introduction: index.md
+  - Creating a new Group: creating-groups.md
+  - Adding a User: adding-users.md
