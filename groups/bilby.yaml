@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: bilby
+  name: department-of-veterans-affairs/team-bilby
   description: VA API End User Experience
 spec:
   type: team

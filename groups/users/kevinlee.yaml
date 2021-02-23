@@ -7,4 +7,4 @@ spec:
     displayName: Kevin Lee
     email: kevin.lee@adhocteam.us
     picture: https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg
-  memberOf: [bilby]
+  memberOf: [bilby, department-of-veterans-affairs/team-bilby]

@@ -73,6 +73,9 @@ catalog:
     # static documentation component
     - type: url
       target: https://github.com/department-of-veterans-affairs/backstage/blob/master/documentation/techdocs/techdocs.yaml
+    # static group
+    - type: url
+      target: https://github.com/department-of-veterans-affairs/backstage/blob/users-testing/groups.yaml
     # static location/api
     - type: url
       target: https://github.com/department-of-veterans-affairs/vets-api/blob/backstage-catalog-testing/backstage-apis.yaml
