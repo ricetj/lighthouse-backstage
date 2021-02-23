@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: team-bilby
+  name: backstage-maintainers
   namespace: department-of-veterans-affairs
   description: VA API End User Experience
 spec:
@@ -11,3 +11,27 @@ spec:
     email: kevin.lee@adhocteam.us
     picture: https://www.abc.net.au/cm/rimage/7266792-16x9-large.jpg
   children: []
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: lekeve
+spec:
+  profile:
+    displayName: Kevin Lee
+    email: kevin.lee@adhocteam.us
+  memberOf: [department-of-veterans-affairs/team-bilby]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: rianfowler
+spec:
+  profile:
+    displayName: Rian Fowler
+    email: rian.fowler@adhocteam.us
+    picture: https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg
+  memberOf: [department-of-veterans-affairs/team-bilby]
+---
+
