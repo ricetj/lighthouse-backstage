@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: groups
+spec:
+  type: url
+  targets:
+    - https://github.com/department-of-veterans-affairs/backstage/blob/users-testing/groups/bilby.yaml

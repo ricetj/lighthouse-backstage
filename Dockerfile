@@ -19,7 +19,7 @@ RUN pip3.8 install cookiecutter && \
 
 WORKDIR /usr/src/app
 
-COPY package.json yarn.lock lerna.json mkdocs.yml /usr/src/app/
+COPY package.json yarn.lock lerna.json mkdocs.yml app-config.yaml /usr/src/app/
 COPY packages/app/package.json /usr/src/app/packages/app/
 COPY packages/backend/package.json /usr/src/app/packages/backend/
 RUN yarn install
