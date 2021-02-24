@@ -28,3 +28,6 @@ site
 
 # Local configuration files
 *.local.yaml
+
+# OS files
+.DS_Store

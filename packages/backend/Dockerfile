@@ -1,4 +1,4 @@
-FROM node:14-buster
+FROM node:14.15.4-buster
 
 WORKDIR /tmp
 
