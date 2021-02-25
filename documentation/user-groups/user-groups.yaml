@@ -9,4 +9,4 @@ metadata:
 spec:
   type: documentation
   lifecycle: experimental
-  owner: 'department-of-veterans-affairs/va-backstage'
+  owner: 'department-of-veterans-affairs/team-backstage'
