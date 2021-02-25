@@ -78,7 +78,7 @@ catalog:
       target: https://github.com/department-of-veterans-affairs/vets-api/blob/backstage-catalog-testing/backstage-apis.yaml
     # example team
     - type: url
-      target: https://github.com/department-of-veterans-affairs/backstage/blob/master/groups/team-backstage.yaml
+      target: https://github.com/department-of-veterans-affairs/backstage/blob/master/groups.yaml
 
     # Backstage example components
     - type: url

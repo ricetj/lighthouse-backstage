@@ -43,7 +43,5 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=secret
-    volumes:
-      - db:/var/lib/postgresql/data
 volumes:
   db: {}
