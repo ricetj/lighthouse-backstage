@@ -33,7 +33,7 @@ A User can be defined in a separate YAML file or included with the Group that th
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: backstage
+  name: team-backstage
   namespace: department-of-veterans-affairs
   description: Example of a backstage User Group
   annotations:
@@ -42,7 +42,7 @@ metadata:
 spec:
   type: team
   profile:
-    displayName: va-backstage
+    displayName: team-backstage
     email: example@example.us
   children: []
 ---
@@ -53,7 +53,7 @@ metadata:
 spec:
   profile:
     displayName: testUser1
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
@@ -62,5 +62,5 @@ metadata:
 spec:
   profile:
     displayName: testUser2
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ```

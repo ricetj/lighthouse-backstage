@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: backstage
+  name: team-backstage
   # testing namespaces
   namespace: department-of-veterans-affairs
   description: Example of a backstage User Group
@@ -11,8 +11,8 @@ metadata:
 spec:
   type: team
   profile:
-    displayName: va-backstage
-    email: kevin.lee@adhocteam.us
+    displayName: team-backstage
+    email: example@example.com
   children: []
 ---
 apiVersion: backstage.io/v1alpha1
@@ -22,7 +22,7 @@ metadata:
 spec:
   profile:
     displayName: Rian
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
@@ -31,7 +31,7 @@ metadata:
 spec:
   profile:
     displayName: Kevin
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
@@ -40,7 +40,7 @@ metadata:
 spec:
   profile:
     displayName: Johanna
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
@@ -49,7 +49,7 @@ metadata:
 spec:
   profile:
     displayName: Anthony
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
 ---
 apiVersion: backstage.io/v1alpha1
 kind: User
@@ -58,4 +58,4 @@ metadata:
 spec:
   profile:
     displayName: Tyler
-  memberOf: [department-of-veteran-affairs/backstage]
+  memberOf: [department-of-veteran-affairs/team-backstage]
