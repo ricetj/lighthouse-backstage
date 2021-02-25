@@ -1,21 +1,37 @@
+# use the circleci cli tool to validate changes locally
+# https://circleci.com/docs/2.0/local-cli/
+
+# Environment variables
+# - AWS_ACCESS_KEY_ID
+# - AWS_ECR_ACCOUNT_URL
+# - AWS_REGION
+# - AWS_SECRET_ACCESS_KEY
 version: 2.1
 orbs:
-  node: circleci/node@4.1.0
+  node: circleci/node@4.1.0 # https://circleci.com/developer/orbs/orb/circleci/node
+  aws-ecr: circleci/aws-ecr@6.15.3 # https://circleci.com/developer/orbs/orb/circleci/aws-ecr
 workflows:
   build-publish-docker-images:
     jobs:
-      - build
-      - build-images:
-          context:
-            - vavfsbot-dockerhub-creds
+      - prebuild
+      - build_push_frontend_image:
           filters:
             branches:
               only:
                 - master
           requires:
-            - build
+            - prebuild
+      - build_push_backend_image:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - prebuild
+
 jobs:
-  build:
+  # install dependencies, transpile typescript and, shuffle files for docker builds
+  prebuild:
     executor:
       name: node/default
       tag: 14.15.4
@@ -33,37 +49,43 @@ jobs:
           root: .
           paths:
             - .
-  build-images:
-    environment:
-      BACKEND_IMAGE_NAME: dsva/backstage-demo-backend
-      FRONTEND_IMAGE_NAME: dsva/backstage-demo-frontend
+  build_push_frontend_image:
     executor:
       name: node/default
       tag: 14.15.4
+    environment:
+      FRONTEND_IMAGE_NAME: frontend
+      AWS_REPO_NAME: dsva/backstage
     steps:
       - attach_workspace:
           at: .
       - setup_remote_docker:
           version: 19.03.13
-      - run:
-          name: docker login
-          command: echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
+      - aws-ecr/ecr-login:
+          region: AWS_REGION
       - run:
           name: build and push frontend image
-          command: |
-            cd packages/app && docker build -t $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1 .
-            docker push $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1
-            docker tag $FRONTEND_IMAGE_NAME:$CIRCLE_SHA1 $FRONTEND_IMAGE_NAME:latest
-            docker push $FRONTEND_IMAGE_NAME:latest
+          command: cd packages/app && docker build -t $AWS_ECR_ACCOUNT_URL/$AWS_REPO_NAME:$FRONTEND_IMAGE_NAME-$CIRCLE_SHA1 .
+  build_push_backend_image:
+    executor:
+      name: node/default
+      tag: 14.15.4
+    environment:
+      BACKEND_IMAGE_NAME: backend
+      AWS_REPO_NAME: dsva/backstage
+    steps:
+      - attach_workspace:
+          at: .
+      - setup_remote_docker:
+          version: 19.03.13
+      - aws-ecr/ecr-login:
+          region: AWS_REGION
       - run:
-          name: build backend image and push
-          command: |
-            yarn build-image
-            docker tag backstage:latest $BACKEND_IMAGE_NAME:$CIRCLE_SHA1
-            docker push $BACKEND_IMAGE_NAME:$CIRCLE_SHA1
-            docker tag backstage:latest $BACKEND_IMAGE_NAME:latest
-            docker push $BACKEND_IMAGE_NAME:latest
+          name: build backend image with backstage cli
+          # use backstage's default cli command to build backend image
+          command: yarn build-image
       - run:
-          name: docker logout
-          when: always
-          command: docker logout
+          name: rename and tag image
+          # example: ecr-account-url.com/dsva/backstage:backend-SHA
+          command: |
+            docker tag backstage:latest $AWS_ECR_ACCOUNT_URL/$AWS_REPO_NAME:$BACKEND_IMAGE_NAME-$CIRCLE_SHA1
