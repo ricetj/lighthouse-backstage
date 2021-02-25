@@ -1,12 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: 'TechDocs'
-  description: 'TechDocs Documentation'
+  name: 'user-groups'
+  description: 'Documentation for User/Group Entities in Backstage'
   annotations:
     github.com/project-slug: 'department-of-veterans-affairs/backstage'
-    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/tree/master/documentation/techdocs
+    backstage.io/techdocs-ref: url:https://github.com/department-of-veterans-affairs/backstage/tree/master/documentation/user-groups
 spec:
   type: documentation
   lifecycle: experimental
-  owner: 'department-of-veterans-affairs/team-bilby'
+  owner: 'department-of-veterans-affairs/va-backstage'

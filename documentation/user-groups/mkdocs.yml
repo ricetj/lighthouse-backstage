@@ -1,10 +1,10 @@
-site_name: 'User Groups'
-site_description: 'User/Groups Documentation'
+site_name: 'Users and Groups'
+site_description: 'Documentation for User/Group Entities in Backstage'
 
 plugins:
   - techdocs-core
 
 nav:
   - Introduction: index.md
-  - Creating a new Group: creating-groups.md
-  - Adding a User: adding-users.md
+  - Creating a Group: creating-groups.md
+  - Creating and adding Users: users.md
