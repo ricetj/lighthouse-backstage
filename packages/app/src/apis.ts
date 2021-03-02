@@ -5,6 +5,7 @@ import {
   ErrorAlerter,
   ErrorApiForwarder
 } from '@backstage/core';
+import { MockSentryApi, sentryApiRef } from '@backstage/plugin-sentry';
 
 export const apis = [
   createApiFactory({
@@ -12,4 +13,5 @@ export const apis = [
     deps: { alertApi: alertApiRef },
     factory: ({ alertApi }) => new ErrorAlerter(alertApi, new ErrorApiForwarder()),
   }),
+  createApiFactory(sentryApiRef, new MockSentryApi()),
 ];

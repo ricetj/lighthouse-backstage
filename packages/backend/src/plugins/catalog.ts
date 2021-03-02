@@ -6,7 +6,9 @@ import {
 } from '@backstage/plugin-catalog-backend';
 import { PluginEnvironment } from '../types';
 
-export default async function createPlugin(env: PluginEnvironment) {
+
+
+export default async function createPlugin(env:PluginEnvironment) {
   const builder = new CatalogBuilder(env);
   const {
     entitiesCatalog,

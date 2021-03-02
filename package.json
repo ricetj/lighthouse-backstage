@@ -31,10 +31,18 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "^0.4.6",
-    "@spotify/prettier-config": "^7.0.0",
-    "lerna": "^3.20.2",
-    "prettier": "^1.19.1"
+    "@changesets/cli": "^2.14.0",
+    "@octokit/openapi-types": "^2.2.0",
+    "@spotify/eslint-config-oss": "^1.0.1",
+    "@spotify/prettier-config": "^9.0.0",
+    "command-exists": "^1.2.9",
+    "concurrently": "^5.2.0",
+    "fs-extra": "^9.0.0",
+    "lerna": "^4.0.0",
+    "lint-staged": "^10.1.0",
+    "prettier": "^2.0.5",
+    "recursive-readdir": "^2.2.2",
+    "shx": "^0.3.2"
   },
   "prettier": "@spotify/prettier-config",
   "lint-staged": {

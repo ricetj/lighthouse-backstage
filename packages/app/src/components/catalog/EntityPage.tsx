@@ -25,8 +25,8 @@ import {
 import {
   AboutCard,
   EntityPageLayout,
-  useEntity,
 } from '@backstage/plugin-catalog';
+import { useEntity } from '@backstage/plugin-catalog-react';
 import {
   isPluginApplicableToEntity as isCircleCIAvailable,
   Router as CircleCIRouter,
@@ -36,6 +36,7 @@ import {
   Router as GitHubActionsRouter,
 } from '@backstage/plugin-github-actions';
 import { EmbeddedDocsRouter as DocsRouter } from '@backstage/plugin-techdocs';
+import { Router as SentryRouter } from '@backstage/plugin-sentry';
 import { Grid } from '@material-ui/core';
 import React from 'react';
 
@@ -182,6 +183,11 @@ const ApiEntityPage = ({ entity }: { entity: Entity }) => (
       path="/definition/*"
       title="Definition"
       element={<ApiDefinitionContent entity={entity as ApiEntity} />}
+    />
+  <EntityPageLayout.Content 
+    path="/sentry"
+    title="Sentry"
+    element={ <SentryRouter entity={entity} />}
     />
   </EntityPageLayout>
 );

@@ -37,6 +37,15 @@ proxy:
   '/test':
     target: 'https://example.com'
     changeOrigin: true
+  '/sentry/api':
+    target: https://sentry.io/api/
+    allowedMethods: ['GET']
+    headers:
+      Authorization:
+        $env: SENTRY_TOKEN
+
+sentry:
+  organization: my org
 
 techdocs:
   requestUrl: http://localhost:7000/api/techdocs
