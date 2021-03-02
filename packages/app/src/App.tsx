@@ -19,9 +19,7 @@ import {
   catalogPlugin
 } from '@backstage/plugin-catalog';
 import { CatalogImportPage } from '@backstage/plugin-catalog-import';
-// import { Router as ImportComponentRouter } from '@backstage/plugin-catalog-import';
 import { TechdocsPage } from '@backstage/plugin-techdocs';
-// import { Router as RegisterComponentRouter } from '@backstage/plugin-register-component';
 import { Router as TechRadarRouter } from '@backstage/plugin-tech-radar';
 import { Router as SettingsRouter } from '@backstage/plugin-user-settings';
 import { Router as LighthouseRouter } from '@backstage/plugin-lighthouse';
@@ -64,30 +62,6 @@ const AppProvider = app.getProvider();
 const AppRouter = app.getRouter();
 const deprecatedAppRoutes = app.getRoutes();
 
-/*
-<Route
-path="/catalog/*"
-element={<CatalogRouter EntityPage={EntityPage} />}
-/>
- <Route
-path="/catalog-import"
-element={
-  <ImportComponentRouter catalogRouteRef={catalogRouteRef} />
-}
-/>
-<Route
-            path="/register-component"
-            element={
-              <RegisterComponentRouter catalogRouteRef={catalogRouteRef} />
-            }
-          />
-
-const catalogRouteRef = createRouteRef({
-  path: '/catalog',
-  title: 'Service Catalog',
-});
-*/
-
 const App = () => (
   <AppProvider>
     <AlertDisplay />
@@ -115,7 +89,7 @@ const App = () => (
 
           <Route path="/lighthouse/*" element={<LighthouseRouter />} />
           <Route path="settings" element={<SettingsRouter />} />
-          { deprecatedAppRoutes}
+          {deprecatedAppRoutes}
         </FlatRoutes>
       </SidebarPage>
     </AppRouter>
