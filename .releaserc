@@ -1,0 +1,11 @@
+branches: ["master"]
+plugins: [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github",
+    ["@semantic-release/exec", {
+        "verifyFrontend": "./release/verify-ecr-image-exists.sh dsva/backstage frontend-${nextRelease.gitHead}",
+        "verifyBackend": "./release/verify-ecr-image-exists.sh dsva/backstage backend-${nextRelease.gitHead}",
+        "publishCmd": "./release/tag-ecr-image.sh dsva/backstage ${nextRelease.gitHead} ${nextRelease.version}"
+    }],
+]

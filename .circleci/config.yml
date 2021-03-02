@@ -29,6 +29,15 @@ workflows:
           requires:
             - prebuild
 
+      - release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build_push_frontend_image
+            - build_push_backend_image
+
 jobs:
   # install dependencies, transpile typescript and, shuffle files for docker builds
   prebuild:
@@ -66,6 +75,9 @@ jobs:
       - run:
           name: build and push frontend image
           command: cd packages/app && docker build -t $AWS_ECR_ACCOUNT_URL/$AWS_REPO_NAME:$FRONTEND_IMAGE_NAME-$CIRCLE_SHA1 .
+      - aws-ecr/push-image:
+          repo: $AWS_REPO_NAME
+          tag: $FRONTEND_IMAGE_NAME-$CIRCLE_SHA1
   build_push_backend_image:
     executor:
       name: node/default
@@ -89,3 +101,16 @@ jobs:
           # example: ecr-account-url.com/dsva/backstage:backend-SHA
           command: |
             docker tag backstage:latest $AWS_ECR_ACCOUNT_URL/$AWS_REPO_NAME:$BACKEND_IMAGE_NAME-$CIRCLE_SHA1
+  release:
+    executor:
+      name: node/default
+      tag: 14.15.4
+    steps:
+      - checkout
+      - aws-ecr/ecr-login:
+          region: AWS_REGION
+      - run: chmod a+x ./release/verify-ecr-image-exists.sh
+      - run: chmod a+x ./release/tag-ecr-image.sh
+      - run: npm install semantic-release
+      - run: npm install @semantic-release/exec -D
+      - run: npx semantic-release

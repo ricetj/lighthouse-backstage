@@ -90,3 +90,36 @@ This graph visualizes the docker containerization state and the dependencies/vol
 ### Why build images outside of docker-compose?
 
 Yes, docker-compose can build images.. but it's not quite that simple. The image build process that Backstage ships with uses `yarn build` outside the container to generate some artifacts that are used as input to the Docker image build process. Namely, it generates the skeleton.tar file. Rather than fighting this, we're just creating the image as a secondary step. Incidentally, this means it's actually quite a bit faster build on Docker Desktop on Windows or Mac.
+
+## Releases
+
+_This feature is a work in progress._
+
+### Triggering a release
+
+- Use a [coventional commit](https://www.conventionalcommits.org/en/v1.0.0/#summary) format on your PR title to trigger an automated release after squash and merge.
+- Examples:
+
+|old version|PR Title|new version|
+|---|---|---|
+|1.0.0|fix: correct typo|1.0.1|
+|1.0.1|feat: add python support|1.1.1|
+|1.1.1|refactor!: drop support for node 10|2.0.0|
+
+_There are many options available in the conventional commit spec._
+
+### Automated release details
+
+- This repo uses [Semantic Release](https://github.com/semantic-release/semantic-release) to automate
+  - tagging versions in **git**
+  - creating releases in **GitHub**
+  - following semantic versioning in **npm**
+- The automated deploy relies on tagging conventions to be triggered:
+  - The process starts by a developer squashing and merging a PR with a conventional commit title
+  - The CI builds the master branch and pushes docker images to ECR
+     - one image is pushed for the frontend and one for the backend to the same ECR `dsva/backstage`
+     - images are tagged with the git commit sha as `frontend-SHA1` and `backend-SHA1`
+  - Semantic Release triggers the workflow defined in `.releaserc`:
+    - create a release in GitHub
+    - trigger the two scripts defined in `./release` that verify the images were created correctly and tag them following the conventions required by the deployment infrastructure
+  - The deployment infrastructure detects? a version change and uses the GitHub release info to choose the correct images to deploy
