@@ -60,6 +60,16 @@ auth:
         clientSecret:
           $env: AUTH_GITHUB_CLIENT_SECRET
 
+slack:
+  token:
+    $env: SLACK_TOKEN
+  baseUrl:
+    $env: SLACK_BASE_URL
+  botId:
+    $env: SLACK_BOT_ID
+  channel:
+    $env: SLACK_CHANNEL
+
 scaffolder:
   github:
     token:

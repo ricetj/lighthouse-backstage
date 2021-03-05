@@ -24,6 +24,7 @@ import catalog from './plugins/catalog';
 import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
+import { createRouter as createSlackRouter } from '@internal/plugin-slack-backend';
 import { PluginEnvironment } from './types';
 
 function makeCreateEnv(config: Config) {
@@ -62,6 +63,13 @@ async function main() {
   apiRouter.use('/auth', await auth(authEnv));
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
+
+  
+  // CUSTOM PLUGINS
+  const slackEnv = useHotMemoize(module, () => createEnv('slack'));
+  apiRouter.use('/slack', await createSlackRouter(slackEnv));
+  // END CUSTOM PLUGINS
+
   apiRouter.use(notFoundHandler());
 
   const service = createServiceBuilder(module)

@@ -11,6 +11,14 @@ Configured in this demo is:
 
 ## Running the app locally
 
+## Getting Started
+
+To get started, you'll need to complete each section below
+- Github configuration
+- Slack configuration
+- Create image
+
+### Github configuration
 To get started, you'll need to [register an OAuth application on GitHub](https://github.com/settings/developers) (callback is localhost:7000 for now) and a [GitHub personal access token](https://github.com/settings/tokens). For the personal access token, it needs repo, workflow, and admin:repo_hook access.
 
 The application can be built for local development either natively or using a docker setup. **The preferred method for local development is running natively.** After obtaining the necessary GitHub Auth Tokens skip to the desired sections:
@@ -64,6 +72,20 @@ export AUTH_GITHUB_CLIENT_ID=<id>
 export AUTH_GITHUB_CLIENT_SECRET=<secret>
 ```
 
+### Slack configuration
+
+*If you do not plan to use the slack plugin you should be able to put in placeholder strings for these values without issue*
+
+Store your slack token in the .env file in your local checkout like:
+```
+export SLACK_BASE_URL=<url>
+export SLACK_CHANNEL=<channel>
+export SLACK_BOT_ID=<bot-id>
+export SLACK_TOKEN=<token>
+```
+
+### Create image
+
 Then, you need to create the images locally. Run:
 
 ```
@@ -90,3 +112,7 @@ This graph visualizes the docker containerization state and the dependencies/vol
 ### Why build images outside of docker-compose?
 
 Yes, docker-compose can build images.. but it's not quite that simple. The image build process that Backstage ships with uses `yarn build` outside the container to generate some artifacts that are used as input to the Docker image build process. Namely, it generates the skeleton.tar file. Rather than fighting this, we're just creating the image as a secondary step. Incidentally, this means it's actually quite a bit faster build on Docker Desktop on Windows or Mac.
+
+### Creating backend/frontend plugins docs
+
+[Doc](./docs/making-custom-plugins.md)
