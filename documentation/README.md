@@ -15,3 +15,7 @@ techdocs:
   publisher:
     type: 'local'
 ```
+
+# Custom Plugins
+
+See the custom-plugins.md file in this directory to read how to create custom plugins for the backend and frontend.
