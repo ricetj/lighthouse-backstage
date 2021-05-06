@@ -1,4 +1,3 @@
-  
 # Lines starting with '#' are comments.
 # Each line is a file pattern followed by one or more owners.
 
@@ -13,4 +12,4 @@
 # This should make it easy to add new rules without breaking existing ones.
 
 # Global rule:
-*   @department-of-veterans-affairs/lighthouse-bilby @department-of-veterans-affairs/lighthouse-koala
+*   @department-of-veterans-affairs/lighthouse-bandicoot

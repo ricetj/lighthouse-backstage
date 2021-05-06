@@ -12,6 +12,9 @@ coverage
 # Dependencies
 node_modules/
 
+# Node version directives
+.nvmrc
+
 # dotenv environment variables file
 .env
 .env.test
@@ -29,5 +32,5 @@ site
 # Local configuration files
 *.local.yaml
 
-# OS files
-.DS_Store
+# Sensitive credentials
+*-credentials.yaml

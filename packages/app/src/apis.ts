@@ -1,15 +1,14 @@
 import {
-  alertApiRef,
-  createApiFactory,
-  errorApiRef,
-  ErrorAlerter,
-  ErrorApiForwarder
+  AnyApiFactory, configApiRef, createApiFactory
 } from '@backstage/core';
+import {
+  ScmIntegrationsApi, scmIntegrationsApiRef
+} from '@backstage/integration-react';
 
-export const apis = [
+export const apis: AnyApiFactory[] = [
   createApiFactory({
-    api: errorApiRef,
-    deps: { alertApi: alertApiRef },
-    factory: ({ alertApi }) => new ErrorAlerter(alertApi, new ErrorApiForwarder()),
+    api: scmIntegrationsApiRef,
+    deps: { configApi: configApiRef },
+    factory: ({ configApi }) => ScmIntegrationsApi.fromConfig(configApi),
   }),
 ];

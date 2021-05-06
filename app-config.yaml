@@ -1,8 +1,6 @@
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
-  listen:
-    host: 0.0.0.0
 
 organization:
   name: My Company
@@ -18,91 +16,84 @@ backend:
     methods: [GET, POST, PUT, DELETE]
     credentials: true
   database:
-    client: pg
-    connection: 'postgresql://postgres:secret@database:5432/postgres'
-  workingDirectory: /tmp/backstage # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
+    client: sqlite3
+    connection: ':memory:'
+  # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
   github:
     - host: github.com
-      token:
-        $env: GITHUB_TOKEN
+      token: ${GITHUB_TOKEN}
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
-    #   token:
-    #     $env: GHE_TOKEN
+    #   token: ${GHE_TOKEN}
 
 proxy:
   '/test':
     target: 'https://example.com'
     changeOrigin: true
 
+# Reference documentation http://backstage.io/docs/features/techdocs/configuration
+# Note: After experimenting with basic setup, use CI/CD to generate docs
+# and an external cloud storage when deploying TechDocs for production use-case.
+# https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
-  requestUrl: http://localhost:7000/api/techdocs
-  storageUrl: http://localhost:7000/api/techdocs/static/docs
-  builder: 'local'
+  builder: 'local' # Alternatives - 'external'
   generators:
-    techdocs: 'local'
+    techdocs: 'docker' # Alternatives - 'local'
   publisher:
-    type: 'local'
-
-lighthouse:
-  baseUrl: http://localhost:3003
+    type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
 auth:
   # see https://backstage.io/docs/tutorials/quickstart-app-auth to know more about enabling auth providers
-  providers:
-    github:
-      development:
-        clientId:
-          $env: AUTH_GITHUB_CLIENT_ID
-        clientSecret:
-          $env: AUTH_GITHUB_CLIENT_SECRET
+  providers: {}
 
 scaffolder:
   github:
-    token:
-      $env: GITHUB_TOKEN
-    visibility: private # 'internal' or 'private' or 'public'
+    token: ${GITHUB_TOKEN}
+    visibility: public # or 'internal' or 'private'
 
 catalog:
   rules:
-    - allow: [Component, API, Group, User, Template, Location]
+    - allow: [Component, System, API, Group, User, Template, Location]
   locations:
-    # static documentation component
-    - type: url
-      target: https://github.com/department-of-veterans-affairs/backstage/blob/master/documentation/techdocs/techdocs.yaml
-    # static location/api
-    - type: url
-      target: https://github.com/department-of-veterans-affairs/vets-api/blob/backstage-catalog-testing/backstage-apis.yaml
-
     # Backstage example components
     - type: url
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
+
+    # Backstage example systems
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-systems.yaml
 
     # Backstage example APIs
     - type: url
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
 
+    # Backstage example organization groups
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
+      rules:
+        - allow: [Group, User]
+
     # Backstage example templates
-    - type: github
+    - type: url
       target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/react-ssr-template/template.yaml
       rules:
         - allow: [Template]
-    - type: github
+    - type: url
       target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/springboot-grpc-template/template.yaml
       rules:
         - allow: [Template]
-    - type: github
+    - type: url
       target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/create-react-app/template.yaml
       rules:
         - allow: [Template]
-    - type: github
+    - type: url
       target: https://github.com/spotify/cookiecutter-golang/blob/master/template.yaml
       rules:
         - allow: [Template]
-    - type: github
+    - type: url
       target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/docs-template/template.yaml
       rules:
         - allow: [Template]

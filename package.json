@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "14.15.4"
+    "node": "12 || 14"
   },
   "scripts": {
+    "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "start": "yarn workspace app start",
     "start-backend": "yarn workspace backend start",
-    "docker-start": "docker-compose up -d",
-    "docker-stop": "docker-compose down",
-    "docker-logs": "docker-compose logs -f",
     "build": "lerna run build",
     "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",
@@ -24,6 +22,10 @@
     "create-plugin": "backstage-cli create-plugin --scope internal --no-private",
     "remove-plugin": "backstage-cli remove-plugin"
   },
+  "resolutions": {
+    "graphql-language-service-interface": "2.8.2",
+    "graphql-language-service-parser": "1.9.0"
+  },
   "workspaces": {
     "packages": [
       "packages/*",
@@ -31,9 +33,10 @@
     ]
   },
   "devDependencies": {
-    "@backstage/cli": "^0.4.6",
+    "@backstage/cli": "^0.6.9",
     "@spotify/prettier-config": "^7.0.0",
-    "lerna": "^3.20.2",
+    "concurrently": "^6.0.0",
+    "lerna": "^4.0.0",
     "prettier": "^1.19.1"
   },
   "prettier": "@spotify/prettier-config",
@@ -48,14 +51,7 @@
   },
   "jest": {
     "transformModules": [
-      "@kyma-project/asyncapi-react"
+      "@asyncapi/react-component"
     ]
-  },
-  "dependencies": {
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/github": "^7.2.0",
-    "@semantic-release/release-notes-generator": "^9.0.1",
-    "semantic-release": "^17.3.8"
   }
 }

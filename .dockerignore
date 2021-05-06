@@ -1,7 +1,5 @@
-.vscode
-.env
-dist-types
+.git
 node_modules
-packages/*/node_modules
-packages/*/dist
-*.local.yaml
+packages
+!packages/backend/dist
+plugins
