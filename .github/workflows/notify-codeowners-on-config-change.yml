@@ -1,6 +1,6 @@
 name: Notify Codeowners On Config Change
-on:
-  workflow_dispatch:
+on: [push]
+  jobs:
     logLatestRelease:
       runs-on: ubuntu-latest
       steps:
