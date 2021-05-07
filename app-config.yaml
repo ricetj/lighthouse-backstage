@@ -1,14 +1,14 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: https://lighthouse-backstage.herokuapp.com
 
 organization:
   name: My Company
 
 backend:
-  baseUrl: http://localhost:7000
+  baseUrl: https://lighthouse-backstage.herokuapp.com
   listen:
-    port: 7000
+    port: ${PORT}
   csp:
     connect-src: ["'self'", 'http:', 'https:']
   cors:
