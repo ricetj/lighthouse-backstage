@@ -1,0 +1,20 @@
+name: Build and test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: yarn install
+      - name: Transpile typescript
+        run: yarn tsc
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test:all

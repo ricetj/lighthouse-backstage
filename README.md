@@ -1,3 +1,5 @@
+[![Build and test](https://github.com/department-of-veterans-affairs/lighthouse-backstage/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/department-of-veterans-affairs/lighthouse-backstage/actions/workflows/build-and-test.yml)
+
 # [Backstage](https://backstage.io)
 
 This is your newly scaffolded Backstage App.
