@@ -1,0 +1,37 @@
+name: Build, test, deploy main
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SHOULD_DEPLOY: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: yarn install
+      - name: Transpile typescript
+        run: yarn tsc
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test:all
+      - name: Login to Heroku Container registry
+        if: ${{ env.SHOULD_DEPLOY == 'true' }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+      - name: Build and push to Heroku
+        if: ${{ env.SHOULD_DEPLOY == 'true' }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:push web -a lighthouse-backstage
+      - name: Release to Heroku
+        if: ${{ env.SHOULD_DEPLOY == 'true' }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release web -a lighthouse-backstage
