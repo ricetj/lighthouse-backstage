@@ -11,4 +11,9 @@ jobs:
           route: GET /repos/department-of-veterans-affairs/lighthouse-backstage/releases 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo ${{ steps.get_branch_protection.outputs.data }} > ./branch-protection/latest.json"
+      - run: "echo ${{ steps.get_branch_protection.outputs.data }} > branch-protection-config.json"
+      - uses: action/upload-artifact@v2
+        with:
+          name: branch-protection-config 
+          path: branch-protection-config.json
+      - run: 'true'
