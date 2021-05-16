@@ -5,9 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@v2.x
-        id: get_latest_release
+        id: get_branch_protection
         with:
-          route: GET /repos/department-of-veterans-affairs/lighthouse-backstage/branches/main/protection
+          # route: GET /repos/department-of-veterans-affairs/lighthouse-backstage/branches/main/protection
+          route: GET /repos/department-of-veterans-affairs/lighthouse-backstage/releases 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo latest release: ${{ steps.get_latest_release.outputs }}"
+      - run: "echo latest release: ${{ steps.get_branch_protection.outputs }}"
