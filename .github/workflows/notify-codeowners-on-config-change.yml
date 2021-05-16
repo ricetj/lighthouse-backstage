@@ -11,4 +11,4 @@ jobs:
           route: GET /repos/department-of-veterans-affairs/lighthouse-backstage/releases 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo latest release: ${{ steps.get_branch_protection.outputs.data }}"
+      - run: "echo ${{ steps.get_branch_protection.outputs.data }} > ./branch-protection/latest.json"
