@@ -47,7 +47,12 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/tutorials/quickstart-app-auth to know more about enabling auth providers
-  providers: {}
+  environment: development
+  providers: 
+    github:
+      development:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
 
 scaffolder:
   github:
