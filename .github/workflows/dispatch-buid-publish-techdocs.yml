@@ -1,0 +1,17 @@
+name: dispatch-build-publish-techdocs
+
+on: 
+  push:
+    branches:
+    - "main"
+
+
+jobs: 
+  main:
+    runs-on: ubuntu-20.04
+    steps: 
+      - name: Invoke workflow with inputs
+        uses: aurelien-baudet/workflow-dispatch@v2
+        with:
+          workflow: build-publish-techdocs
+          token: ${{ secrets.DISPATCH_BUILD_PUBLISH_TECHDOCS_TOKEN }}
