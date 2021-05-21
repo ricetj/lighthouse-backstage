@@ -1,24 +1,37 @@
-name: Build, deploy TechDocs
+name: build-publish-techdocs
 
 on: 
   push:
     branches:
       - "main"
+  workflow_dispatch: 
+    inputs:
+      entity_kind:
+        description: 'Backstage entity kind'
+        required: false
+        default: 'Component'
+      entity_namespace:
+        description: 'Backstage entity namespace'
+        required: false
+        default: 'default'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       TECHDOCS_S3_BUCKET_NAME: ${{ secrets.TECHDOCS_S3_BUCKET_NAME }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
-      ENTITY_NAMESPACE: 'default'
-      ENTITY_KIND: 'Component'
-      ENTITY_NAME: 'lighthouse-backstage'
+      ENTITY_NAMESPACE: ${{ github.event.input.entity_namespace || 'default'}} 
+      ENTITY_KIND: ${{ github.event.input.entity_kind || 'Component'}} 
+      ENTITY_NAME: ${{ github.event.repository.name ||  'lightouse-backstage' }} 
+      REPO_FULL_NAME: ${{ github.event.repository.full_name || 'department-of-veterans-affairs/lighthouse-backstage' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          repository: ${{ env.REPO_FULL_NAME }}
       - uses: actions/setup-node@v2
       - uses: actions/setup-python@v2
         with:
