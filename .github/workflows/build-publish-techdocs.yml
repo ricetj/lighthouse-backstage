@@ -5,12 +5,15 @@ on:
     inputs:
       entity_kind:
         description: 'Backstage entity kind'
-        required: false
+        required: true
         default: 'Component'
       entity_namespace:
         description: 'Backstage entity namespace'
-        required: false
+        required: true 
         default: 'default'
+      entity_name:
+        description: 'Backstage entity name'
+        required: true 
 
 jobs:
   build:
@@ -22,7 +25,7 @@ jobs:
       AWS_REGION: ${{ secrets.AWS_REGION }}
       ENTITY_NAMESPACE: ${{ github.event.input.entity_namespace}} 
       ENTITY_KIND: ${{ github.event.input.entity_kind}} 
-      ENTITY_NAME: ${{ github.event.repository.name }} 
+      ENTITY_NAME: ${{ github.event.intput.entity_name }} 
       REPO_FULL_NAME: ${{ github.event.repository.full_name }}
     steps:
       - name: Checkout code
