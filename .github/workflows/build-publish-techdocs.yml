@@ -1,7 +1,7 @@
 name: build-publish-techdocs
 
-on: 
-  workflow_dispatch: 
+on:
+  workflow_dispatch:
     inputs:
       entity_kind:
         description: 'Backstage entity kind'
@@ -9,11 +9,14 @@ on:
         default: 'Component'
       entity_namespace:
         description: 'Backstage entity namespace'
-        required: true 
+        required: true
         default: 'default'
       entity_name:
         description: 'Backstage entity name'
-        required: true 
+        required: true
+      techdocs_repo_full_name:
+        description: 'Repo to pull TechDocs markdown from'
+        required: true
 
 jobs:
   build:
@@ -23,10 +26,10 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
-      ENTITY_NAMESPACE: ${{ github.event.inputs.entity_namespace}} 
-      ENTITY_KIND: ${{ github.event.inputs.entity_kind}} 
-      ENTITY_NAME: ${{ github.event.inputs.entity_name }} 
-      REPO_FULL_NAME: ${{ github.event.repository.full_name }}
+      ENTITY_NAMESPACE: ${{ github.event.inputs.entity_namespace }}
+      ENTITY_KIND: ${{ github.event.inputs.entity_kind }}
+      ENTITY_NAME: ${{ github.event.inputs.entity_name }}
+      REPO_FULL_NAME: ${{ github.event.inputs_techdocs_repo_full_name }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,12 +39,15 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           node-version: 14
-      - name: Install TechDocs cli 
+      - name: Install TechDocs cli
         run: sudo npm install -g @techdocs/cli
       - name: Install mkdocs and mkdocs plugins
         run: pip install mkdocs-techdocs-core==0.*
       - name: Generate docs
         run: techdocs-cli generate --no-docker
       - name: Publish docs
-        run: techdocs-cli publish --publisher-type awsS3 --storage-name $TECHDOCS_S3_BUCKET_NAME --entity $ENTITY_NAMESPACE/$ENTITY_KIND/$ENTITY_NAME 
-        
+        run: >
+          techdocs-cli publish
+          --publisher-type awsS3
+          --storage-name $TECHDOCS_S3_BUCKET_NAME
+          --entity $ENTITY_NAMESPACE/$ENTITY_KIND/$ENTITY_NAME
