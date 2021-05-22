@@ -29,7 +29,7 @@ jobs:
       ENTITY_NAMESPACE: ${{ github.event.inputs.entity_namespace }}
       ENTITY_KIND: ${{ github.event.inputs.entity_kind }}
       ENTITY_NAME: ${{ github.event.inputs.entity_name }}
-      REPO_FULL_NAME: ${{ github.event.inputs_techdocs_repo_full_name }}
+      REPO_FULL_NAME: ${{ github.event.inputs.techdocs_repo_full_name }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
