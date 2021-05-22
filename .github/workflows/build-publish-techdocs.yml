@@ -31,6 +31,15 @@ jobs:
       ENTITY_NAME: ${{ github.event.inputs.entity_name }}
       REPO_FULL_NAME: ${{ github.event.inputs.techdocs_repo_full_name }}
     steps:
+      - name: Fail if input missing
+        if: ${{ !ENTITY_NAMESPACE || !ENTITY_KIND || !ENTITY_NAME || !REPO_FULL_NAME }}
+        run: >
+          echo "Missing required input. Check what's missing:" &&
+          echo "ENTITY_NAMESPACE: ${{ ENTITY_NAMESPACE }} &&
+          echo "ENTITY_KIND: ${{ ENTITY_KIND }} &&
+          echo "ENTITY_NAME: ${{ ENTITY_NAME }} &&
+          echo "TECHDOCS_REPO_FULL_NAME: ${{ REPO_FULL_NAME }} &&
+          exit 1
       - name: Checkout code
         uses: actions/checkout@v2
         with:
