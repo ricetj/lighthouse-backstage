@@ -32,13 +32,18 @@ jobs:
       REPO_FULL_NAME: ${{ github.event.inputs.techdocs_repo_full_name }}
     steps:
       - name: Fail if input missing
-        if: ${{ !ENTITY_NAMESPACE || !ENTITY_KIND || !ENTITY_NAME || !REPO_FULL_NAME }}
+        if: ${{ !env.ENTITY_NAMESPACE || !env.ENTITY_KIND || !env.ENTITY_NAME || !env.REPO_FULL_NAME }}
         run: >
           echo "Missing required input. Check what's missing:" &&
-          echo "ENTITY_NAMESPACE: ${{ ENTITY_NAMESPACE }} &&
-          echo "ENTITY_KIND: ${{ ENTITY_KIND }} &&
-          echo "ENTITY_NAME: ${{ ENTITY_NAME }} &&
-          echo "TECHDOCS_REPO_FULL_NAME: ${{ REPO_FULL_NAME }} &&
+          echo "ENTITY_NAMESPACE: ${{ env.ENTITY_NAMESPACE }}" &&
+          echo "ENTITY_KIND: ${{ env.ENTITY_KIND }}" &&
+          echo "ENTITY_NAME: ${{ env.ENTITY_NAME }}" &&
+          echo "TECHDOCS_REPO_FULL_NAME: ${{ env.REPO_FULL_NAME }}" &&
+          exit 1
+      - name: Fail if repo is not department-of-veterans-affairs
+        if: ${{ !startsWith(env.REPO_FULL_NAME, 'department-of-veterans-affairs/') }}
+        run: >
+          echo "Bad techdocs_repo_full_name. Only department-of-veteran-affairs org repos allowed." &&
           exit 1
       - name: Checkout code
         uses: actions/checkout@v2
