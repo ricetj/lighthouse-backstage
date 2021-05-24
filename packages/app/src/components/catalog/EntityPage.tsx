@@ -45,6 +45,7 @@ import {
   EntityOwnershipCard,
 } from '@backstage/plugin-org';
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
+import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -121,6 +122,13 @@ const websiteEntityPage = (
     <EntityLayout.Route path="/docs" title="Docs">
       <EntityTechdocsContent />
     </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
   </EntityLayout>
 );
 

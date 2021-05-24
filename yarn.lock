@@ -1417,7 +1417,7 @@
     react-use "^17.2.4"
     zen-observable "^0.8.15"
 
-"@backstage/core@^0.7.10":
+"@backstage/core@^0.7.10", "@backstage/core@^0.7.8":
   version "0.7.10"
   resolved "https://registry.yarnpkg.com/@backstage/core/-/core-0.7.10.tgz#95e8481a4eabafa880f190265f7061afb0b7f920"
   integrity sha512-gc+Xc3SkX5XT/m+pBZgI3VrrOBvIWKUxgEr//sPc/CbugpWm6/a+w343wEYf1OpAAjKv6PYOITeqbyyjXnbyjw==
@@ -1705,7 +1705,7 @@
     react-use "^17.2.4"
     yaml "^1.10.0"
 
-"@backstage/plugin-catalog-react@^0.1.4", "@backstage/plugin-catalog-react@^0.1.6":
+"@backstage/plugin-catalog-react@^0.1.4", "@backstage/plugin-catalog-react@^0.1.5", "@backstage/plugin-catalog-react@^0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog-react/-/plugin-catalog-react-0.1.6.tgz#1d72756cce22b880987c30ac27e23af8efa22843"
   integrity sha512-/60GIrcFfyAiKn3bylXegwtHf1NQxQa4PcXD7nSIB5ISCuot2mkI32LMjciEvNHR7efGA5Yv6yWelFSFdvbcKQ==
@@ -2126,6 +2126,11 @@
     colorspace "1.1.x"
     enabled "2.0.x"
     kuler "^2.0.0"
+
+"@date-io/core@2.10.7":
+  version "2.10.7"
+  resolved "https://registry.yarnpkg.com/@date-io/core/-/core-2.10.7.tgz#0fe1fa0ef02c827919e23c2802a4b25589ac522d"
+  integrity sha512-EG/1qDiQvd12RoNJ6H+sZcHVswC/3uMx/ySvfaJ24vB30rLjkgHggEXbgMbfgki7wMuiQ/zXI8QlmF1k3kWRGQ==
 
 "@date-io/core@^1.1.0":
   version "1.3.13"
@@ -3527,6 +3532,11 @@
   resolved "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-7.0.0.tgz#0f6992db9854af15eca77d71ab0ec7fad2f20411"
   integrity sha512-gV/8DJhAL/04zjTI95a7FhQwS6jlEE0W/7xeYAzuArD0KVAVWDLP2f3vi98hs3HLTczxXdRK/mF0tRoQPpolEw==
 
+"@octokit/openapi-types@^7.2.0":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-7.2.1.tgz#3ba1abe8906863edd403e185bc12e2bf79b3e240"
+  integrity sha512-IHQJpLciwzwDvciLxiFj3IEV5VYn7lSVcj5cu0jbTwMfK4IG6/g8SPrVp3Le1VRzIiYSRcBzm1dA7vgWelYP3Q==
+
 "@octokit/plugin-enterprise-rest@^6.0.1":
   version "6.0.1"
   resolved "https://registry.npmjs.org/@octokit/plugin-enterprise-rest/-/plugin-enterprise-rest-6.0.1.tgz#e07896739618dab8da7d4077c658003775f95437"
@@ -3590,6 +3600,13 @@
   dependencies:
     "@octokit/openapi-types" "^7.0.0"
 
+"@octokit/types@^6.14.2":
+  version "6.16.0"
+  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-6.16.0.tgz#15f71e391ca74e91a21b70e3a1b033c89625dca4"
+  integrity sha512-EktqSNq8EKXE82a7Vw33ozOEhFXIRik+rZHJTHAgVZRm/p2K5r5ecn5fVpRkLCm3CAVFwchRvt3yvtmfbt2LCQ==
+  dependencies:
+    "@octokit/openapi-types" "^7.2.0"
+
 "@open-draft/until@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmjs.org/@open-draft/until/-/until-1.0.3.tgz#db9cc719191a62e7d9200f6e7bab21c5b848adca"
@@ -3650,6 +3667,27 @@
   version "2.5.1"
   resolved "https://registry.npmjs.org/@rjsf/material-ui/-/material-ui-2.5.1.tgz#b93ac9f1f4a909e2aae729616859c2d72557e53e"
   integrity sha512-ooKxQJO12+i1xCGtknMZDxWSbVlSEgQ5U1I7lJ+uI/MvwAg3Rz9wb2cTEF3ErBczT7EEW+j1lR19rxBjFd78MA==
+
+"@roadiehq/backstage-plugin-github-insights@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@roadiehq/backstage-plugin-github-insights/-/backstage-plugin-github-insights-1.1.10.tgz#0af8ae29cab6d92985079a1d8f92ede2e50bf247"
+  integrity sha512-XeWnPOgLI1BWgRwGqrnGTk79gpjd9bQtzGLzpTAjecFQWMnp6eeCOpIq1xTQcFHnFOSaJhQLp2JOWtiM4ZUAXw==
+  dependencies:
+    "@backstage/catalog-model" "^0.7.7"
+    "@backstage/core" "^0.7.8"
+    "@backstage/plugin-catalog-react" "^0.1.5"
+    "@backstage/theme" "^0.2.7"
+    "@date-io/core" "2.10.7"
+    "@material-ui/core" "^4.11.0"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.45"
+    "@octokit/rest" "^18.5.3"
+    "@octokit/types" "^6.14.2"
+    history "^5.0.0"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+    react-router "^6.0.0-beta.0"
+    react-use "^17.2.4"
 
 "@rollup/plugin-commonjs@^17.1.0":
   version "17.1.0"
@@ -16494,7 +16532,7 @@ react-router-dom@6.0.0-beta.0:
     prop-types "^15.7.2"
     react-router "6.0.0-beta.0"
 
-react-router@6.0.0-beta.0:
+react-router@6.0.0-beta.0, react-router@^6.0.0-beta.0:
   version "6.0.0-beta.0"
   resolved "https://registry.npmjs.org/react-router/-/react-router-6.0.0-beta.0.tgz#3e11f39b6ded4412c2fed9e4f989dd4c8156724d"
   integrity sha512-VgMdfpVcmFQki/LZuLh8E/MNACekDetz4xqft+a6fBZvvJnVqKbLqebF7hyoawGrV1HcO5tVaUang2Og4W2j1Q==
