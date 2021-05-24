@@ -1,10 +1,13 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router';
+import { Route } from 'react-router';
 import {
   AlertDisplay,
   createApp,
   FlatRoutes,
   OAuthRequestDialog,
+  githubAuthApiRef,
+  SignInProviderConfig,
+  SignInPage
 } from '@backstage/core';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
@@ -21,7 +24,7 @@ import { UserSettingsPage } from '@backstage/plugin-user-settings';
 import { apis } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { Root } from './components/Root';
-import { githubAuthApiRef, SignInProviderConfig, SignInPage } from '@backstage/core';
+import { HomePage } from './components/homepage';
 
 const githubProvider: SignInProviderConfig = {
     id: 'github-auth-provider',
@@ -59,7 +62,7 @@ const AppRouter = app.getRouter();
 
 const routes = (
   <FlatRoutes>
-    <Navigate key="/" to="/catalog" />
+    <Route path="/" element={<HomePage />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"

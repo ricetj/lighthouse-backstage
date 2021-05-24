@@ -46,17 +46,12 @@ techdocs:
   builder: 'external' # Alternatives - 'external'
   publisher:
     type: 'awsS3' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
-    awsS3: 
+    awsS3:
       bucketName: ${TECHDOCS_S3_BUCKET_NAME}
 
 auth:
   # see https://backstage.io/docs/tutorials/quickstart-app-auth to know more about enabling auth providers
-  environment: development
-  providers: 
-    github:
-      development:
-        clientId: ${AUTH_GITHUB_CLIENT_ID}
-        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+  providers: {}
 
 scaffolder:
   github:
