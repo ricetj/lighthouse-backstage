@@ -1234,6 +1234,20 @@
     "@backstage/errors" "^0.1.1"
     cross-fetch "^3.0.6"
 
+"@backstage/catalog-model@^0.7.10":
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/@backstage/catalog-model/-/catalog-model-0.7.10.tgz#bfc0a4e162c1246b319eabfd8497c0c6adbc3f2c"
+  integrity sha512-HA12kAbsoBNj0qY7+rvX2/Hsr375HoB9F7bqwJBo5uL1K0xDJSgQwe2EBVIZqqYSKCMpXGmFjkvp0+RN/m4QTg==
+  dependencies:
+    "@backstage/config" "^0.1.5"
+    "@types/json-schema" "^7.0.5"
+    "@types/yup" "^0.29.8"
+    ajv "^7.0.3"
+    json-schema "^0.3.0"
+    lodash "^4.17.15"
+    uuid "^8.0.0"
+    yup "^0.29.3"
+
 "@backstage/catalog-model@^0.7.7", "@backstage/catalog-model@^0.7.8", "@backstage/catalog-model@^0.7.9":
   version "0.7.9"
   resolved "https://registry.yarnpkg.com/@backstage/catalog-model/-/catalog-model-0.7.9.tgz#4fa65d70845d5f96f4b909724a1b4b7d5f4b40d7"
@@ -1386,6 +1400,69 @@
     react-use "^17.2.4"
     zen-observable "^0.8.15"
 
+"@backstage/core-api@^0.2.19":
+  version "0.2.19"
+  resolved "https://registry.yarnpkg.com/@backstage/core-api/-/core-api-0.2.19.tgz#33011fa06869ffa7cede1aae8cead3071d86f687"
+  integrity sha512-Nj/jXDMqeYlC6GwlabK/IoF9uKlVs0PMr4ESkKIpm8bNCkJOPTQuHv+qMN7X5ZHkwBDieq+k/WTKj2GKVBowgw==
+  dependencies:
+    "@backstage/config" "^0.1.4"
+    "@backstage/theme" "^0.2.6"
+    "@material-ui/core" "^4.11.0"
+    "@material-ui/icons" "^4.9.1"
+    "@types/prop-types" "^15.7.3"
+    "@types/react" "^16.9"
+    prop-types "^15.7.2"
+    react "^16.12.0"
+    react-router-dom "6.0.0-beta.0"
+    react-use "^17.2.4"
+    zen-observable "^0.8.15"
+
+"@backstage/core@^0.7.10":
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/@backstage/core/-/core-0.7.10.tgz#95e8481a4eabafa880f190265f7061afb0b7f920"
+  integrity sha512-gc+Xc3SkX5XT/m+pBZgI3VrrOBvIWKUxgEr//sPc/CbugpWm6/a+w343wEYf1OpAAjKv6PYOITeqbyyjXnbyjw==
+  dependencies:
+    "@backstage/config" "^0.1.5"
+    "@backstage/core-api" "^0.2.19"
+    "@backstage/errors" "^0.1.1"
+    "@backstage/theme" "^0.2.7"
+    "@material-ui/core" "^4.11.0"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.45"
+    "@testing-library/react-hooks" "^3.4.2"
+    "@types/dagre" "^0.7.44"
+    "@types/prop-types" "^15.7.3"
+    "@types/react" "^16.9"
+    "@types/react-sparklines" "^1.7.0"
+    "@types/react-text-truncate" "^0.14.0"
+    classnames "^2.2.6"
+    clsx "^1.1.0"
+    d3-selection "^2.0.0"
+    d3-shape "^2.0.0"
+    d3-zoom "^2.0.0"
+    dagre "^0.8.5"
+    history "^5.0.0"
+    immer "^9.0.1"
+    lodash "^4.17.15"
+    material-table "^1.69.1"
+    pluralize "^8.0.0"
+    prop-types "^15.7.2"
+    qs "^6.9.4"
+    rc-progress "^3.0.0"
+    react "^16.12.0"
+    react-dom "^16.12.0"
+    react-helmet "6.1.0"
+    react-hook-form "^6.15.4"
+    react-markdown "^5.0.2"
+    react-router "6.0.0-beta.0"
+    react-router-dom "6.0.0-beta.0"
+    react-sparklines "^1.7.0"
+    react-syntax-highlighter "^15.4.3"
+    react-text-truncate "^0.16.0"
+    react-use "^17.2.4"
+    remark-gfm "^1.0.0"
+    zen-observable "^0.8.15"
+
 "@backstage/core@^0.7.7", "@backstage/core@^0.7.9":
   version "0.7.9"
   resolved "https://registry.yarnpkg.com/@backstage/core/-/core-0.7.9.tgz#cbfd42b0243eb303d1e08541281b7af228d2dd40"
@@ -1461,6 +1538,18 @@
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@backstage/integration/-/integration-0.5.2.tgz#2bf0f472157d551f55ae77ee1a36c371413b999b"
   integrity sha512-UgW/IbdM7uxPPUI9AEnLozjwwDnWcDvq3pKQFerbB+2JrUWHbfK56iHjb4V1y3YyDQ2vkgNRreq9tRPWgGLc7Q==
+  dependencies:
+    "@backstage/config" "^0.1.5"
+    "@octokit/auth-app" "^3.4.0"
+    "@octokit/rest" "^18.5.3"
+    cross-fetch "^3.0.6"
+    git-url-parse "^11.4.4"
+    luxon "^1.25.0"
+
+"@backstage/integration@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@backstage/integration/-/integration-0.5.3.tgz#84d9f0bfeca3ffdea526125bceb93d29941dbd57"
+  integrity sha512-VdGXvyYwIMPwvhElvn30Dw+mcGkrOvZRCIHVxBkMJYvSYnBHkbViBYS0JaTgAI+2zMpNBHGE6xJpX3ZH0/DIGA==
   dependencies:
     "@backstage/config" "^0.1.5"
     "@octokit/auth-app" "^3.4.0"
@@ -1658,14 +1747,14 @@
     react-router-dom "6.0.0-beta.0"
     react-use "^17.2.4"
 
-"@backstage/plugin-github-actions@^0.4.4":
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/@backstage/plugin-github-actions/-/plugin-github-actions-0.4.6.tgz#c16a80e659199f10e697a0c5532b69fa95bac930"
-  integrity sha512-0ZmrF9g+8PGOBhNcbDue9eNrW8FtUh0+8/l4VSvd3NPlCecgLYmnWEPMXSTqMEBpdGI4Nqz0oUTut0YP6E5rFw==
+"@backstage/plugin-github-actions@^0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-github-actions/-/plugin-github-actions-0.4.7.tgz#79f79fc11aab0bd9d059f501cc5037e926f91f08"
+  integrity sha512-afnnce31QZqTUQ9Aj5PWhg6nFHUoaX9BbNC+7xJ8DWs/W7cR/ipp2fwdVVr84BwDB6aqc8aSavtK5pHxIWdWzA==
   dependencies:
-    "@backstage/catalog-model" "^0.7.9"
-    "@backstage/core" "^0.7.9"
-    "@backstage/integration" "^0.5.2"
+    "@backstage/catalog-model" "^0.7.10"
+    "@backstage/core" "^0.7.10"
+    "@backstage/integration" "^0.5.3"
     "@backstage/plugin-catalog-react" "^0.1.6"
     "@backstage/theme" "^0.2.7"
     "@material-ui/core" "^4.11.0"
@@ -9956,7 +10045,7 @@ graphlib@^2.1.8:
   dependencies:
     lodash "^4.17.15"
 
-graphql-language-service-interface@2.8.2, graphql-language-service-interface@^2.8.2:
+graphql-language-service-interface@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/graphql-language-service-interface/-/graphql-language-service-interface-2.8.2.tgz#b3bb2aef7eaf0dff0b4ea419fa412c5f66fa268b"
   integrity sha512-otbOQmhgkAJU1QJgQkMztNku6SbJLu/uodoFOYOOtJsizTjrMs93vkYaHCcYnLA3oi1Goj27XcHjMnRCYQOZXQ==
@@ -9966,7 +10055,7 @@ graphql-language-service-interface@2.8.2, graphql-language-service-interface@^2.
     graphql-language-service-utils "^2.5.1"
     vscode-languageserver-types "^3.15.1"
 
-graphql-language-service-parser@1.9.0, graphql-language-service-parser@^1.9.0:
+graphql-language-service-parser@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/graphql-language-service-parser/-/graphql-language-service-parser-1.9.0.tgz#79af21294119a0a7e81b6b994a1af36833bab724"
   integrity sha512-B5xPZLbBmIp0kHvpY1Z35I5DtPoDK9wGxQVRDIzcBaiIvAmlTrDvjo3bu7vKREdjFbYKvWNgrEWENuprMbF17Q==
