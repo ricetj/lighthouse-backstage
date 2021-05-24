@@ -46,6 +46,7 @@ import {
 } from '@backstage/plugin-org';
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
+import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -127,6 +128,10 @@ const websiteEntityPage = (
       path="/code-insights"
       title="Code Insights">
       <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/pull-requests" title="Pull Requests">
+      <EntityGithubPullRequestsContent />
     </EntityLayout.Route>
 
   </EntityLayout>
