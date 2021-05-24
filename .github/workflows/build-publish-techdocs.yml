@@ -40,11 +40,11 @@ jobs:
           echo "ENTITY_NAME: ${{ env.ENTITY_NAME }}" &&
           echo "TECHDOCS_REPO_FULL_NAME: ${{ env.REPO_FULL_NAME }}" &&
           exit 1
-      - name: Fail if repo is not department-of-veterans-affairs
-        if: ${{ !startsWith(env.REPO_FULL_NAME, 'department-of-veterans-affairs/') }}
-        run: >
-          echo "Bad techdocs_repo_full_name. Only department-of-veteran-affairs org repos allowed." &&
-          exit 1
+      # - name: Fail if repo is not department-of-veterans-affairs
+      #  if: ${{ !startsWith(env.REPO_FULL_NAME, 'department-of-veterans-affairs/') }}
+      #  run: >
+      #    echo "Bad techdocs_repo_full_name. Only department-of-veteran-affairs org repos allowed." &&
+      #    exit 1
       - name: Checkout code
         uses: actions/checkout@v2
         with:
