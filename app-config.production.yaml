@@ -23,8 +23,18 @@ backend:
 auth:
   # see https://backstage.io/docs/tutorials/quickstart-app-auth to know more about enabling auth providers
   environment: development
-  providers: 
+  providers:
     github:
       development:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+catalog:
+  processors:
+    githubOrg:
+      providers:
+        - target: https://github.com
+          apiBaseUrl: https://api.github.com
+    visibility: public # or 'internal' or 'private'
+  locations:
+    - type: github-org
+      target: https://github.com/titan-syndicate

@@ -11,5 +11,5 @@ metadata:
     # backstage.io/techdocs-ref: url:https://github.com/backstage/backstage
 spec:
   type: website
-  owner: rian.fowler@adhocteam.us
+  owner: lighthouse-bandicoot
   lifecycle: experimental
