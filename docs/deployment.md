@@ -6,4 +6,5 @@
 ## Stuff needed
 
 - Postgres
-- Some secretz 
+- Some secretz and management
+- Pull artifact from Githurb
