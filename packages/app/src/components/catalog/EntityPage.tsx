@@ -47,6 +47,7 @@ import {
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
 import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
+import { Router as SecurityInsightsRouter } from '@roadiehq/backstage-plugin-security-insights'
 
 const cicdContent = (
   // This is an example of how you can implement your company's logic in entity page.
@@ -132,6 +133,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/pull-requests" title="Pull Requests">
       <EntityGithubPullRequestsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/security-insights" title="Security Insights">
+      <SecurityInsightsRouter />
     </EntityLayout.Route>
 
   </EntityLayout>

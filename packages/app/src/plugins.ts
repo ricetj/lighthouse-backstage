@@ -1,0 +1,1 @@
+export { plugin as SecurityInsights } from '@roadiehq/backstage-plugin-security-insights';
