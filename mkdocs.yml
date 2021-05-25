@@ -2,6 +2,7 @@ site_name: 'example-docs'
 
 nav:
   - Home: index.md
+  - Deployment: deployment.md
 
 plugins:
   - techdocs-core
