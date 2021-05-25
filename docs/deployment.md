@@ -1,6 +1,6 @@
 # Deployment 
 
-[![hackmd-github-sync-badge](https://hackmd.io/LGwdWMlvTOOfyXBzLw9hyg/badge)](https://hackmd.io/LGwdWMlvTOOfyXBzLw9hyg)
+[![Collaborate on HackMD](https://hackmd.io/LGwdWMlvTOOfyXBzLw9hyg/badge)](https://hackmd.io/LGwdWMlvTOOfyXBzLw9hyg)
 
 
 ## Stuff needed
