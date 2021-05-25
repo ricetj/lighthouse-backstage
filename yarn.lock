@@ -1968,6 +1968,23 @@
     react-use "^17.2.4"
     sanitize-html "^2.3.2"
 
+"@backstage/plugin-todo@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-todo/-/plugin-todo-0.1.1.tgz#d2a081d164fcceba1057fa7fb570f31c8b4a25e2"
+  integrity sha512-xsDftAvw2t5N4HP2xXsYN7rDwq45JneFb2gWRCEbINzS4hN8bmpOUsaVtRBYVrxgS8Ez7E+0nSYPZo4iQlgFww==
+  dependencies:
+    "@backstage/catalog-model" "^0.7.9"
+    "@backstage/core" "^0.7.9"
+    "@backstage/errors" "^0.1.1"
+    "@backstage/plugin-catalog-react" "^0.1.6"
+    "@backstage/theme" "^0.2.7"
+    "@material-ui/core" "^4.11.0"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.45"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+    react-use "^17.2.4"
+
 "@backstage/plugin-user-settings@^0.2.9":
   version "0.2.10"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-user-settings/-/plugin-user-settings-0.2.10.tgz#5b48e72f4a58f20b4d9ba0a42eea0b6f60ff5acb"
